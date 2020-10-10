@@ -1,7 +1,7 @@
 ---
     AWSTemplateFormatVersion: 2010-09-09
     
-    Description: EKSWSV1
+    Description: EKSWSV2
     
     
     Parameters:
@@ -155,7 +155,7 @@
                   response['Data'] = {"Message": "Resource creation failed"}
     
                 response_body = json.dumps(response)
-                headers = {'content-type': '', "content-length": len(response_body) }
+                headers = {'content-type': '', "content-length": str(len(response_body)) }
                 put_response = requests.put(event['ResponseURL'], headers=headers, data=response_body)
                 return response
     
